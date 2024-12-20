@@ -19,7 +19,7 @@
                         {{ __('出品一覧') }}
                     </x-nav-link>
                     <x-nav-link :href="route('products.create')" :active="request()->routeIs('products.create')">
-                        {{ __('出品ページ') }}
+                        {{ __('出品する') }}
                     </x-nav-link>
                     <x-nav-link :href="route('products.mylist')" :active="request()->routeIs('products.mylist')">
                         {{ __('応援しているページ（マイリスト）') }}
@@ -83,7 +83,7 @@
                 {{ __('出品一覧') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('products.create')" :active="request()->routeIs('products.create')">
-                {{ __('出品ページ') }}
+                {{ __('出品する') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('products.mylist')" :active="request()->routeIs('products.mylist')">
                 {{ __('応援しているページ（マイリスト）') }}
