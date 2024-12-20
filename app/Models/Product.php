@@ -9,4 +9,10 @@ class Product extends Model
 {
     /** @use HasFactory<\Database\Factories\ProductFactory> */
     use HasFactory;
+
+    // ユーザーのモデルファイル設定追加
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

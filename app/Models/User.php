@@ -45,4 +45,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // プロダクトのモデルファイル設定追加
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
