@@ -12,7 +12,18 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::with('user')->latest()->get();
+        return view('products.index', compact('products'));
+    }
+
+    // ダッシュボード（HOME）の表示を
+    public function home()
+    {
+        // 商品のリストを取得
+        $products = Product::all();
+
+        // ビューにデータを渡す
+        return view('home', compact('products'));
     }
 
     /**
@@ -20,7 +31,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -36,7 +47,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        // 製品をデータベースから取得
+        return view('products.show', compact('product'));
     }
 
     /**
