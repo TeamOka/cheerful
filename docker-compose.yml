@@ -12,7 +12,6 @@ services:
             PMA_HOST: mysql
         networks:
             - sail
-
     laravel.test:
         build:
             context: "./vendor/laravel/sail/runtimes/8.4"
