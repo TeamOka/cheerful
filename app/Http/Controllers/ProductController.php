@@ -88,7 +88,6 @@ class ProductController extends Controller
     {
         //編集画面を表示
         return view('products.edit', compact('product'));
-
     }
 
     /**
@@ -104,7 +103,11 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        // 商品を削除
+        $product->delete();
+
+        // 削除後にリダイレクト
+        return redirect()->route('products.index')->with('success', '商品が削除されました。');
     }
 
     public function mylist()
