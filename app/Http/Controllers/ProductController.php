@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -40,7 +41,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        if (!auth()->check()) {
+        if (!Auth::check()) {
             return redirect()->route('login')->with('error', 'ログインが必要です。');
         }
 
@@ -55,7 +56,7 @@ class ProductController extends Controller
         $product = new Product();
         $product->title = $request->product_name;
         $product->description = $request->description ?? ''; // デフォルト値を設定
-        $product->user_id = auth()->id();
+        $product->user_id = Auth::id();
         $product->tag = implode(',', $request->tag ?? []); // タグを設定
 
         // 画像の処理
@@ -88,7 +89,6 @@ class ProductController extends Controller
     {
         //編集画面を表示
         return view('products.edit', compact('product'));
-
     }
 
     /**
@@ -96,7 +96,21 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'product_name' => 'required|string|max:255',
+            'description' => 'nullable|string|max:1000',
+            'tag' => 'nullable|array',
+            'tag.*' => 'string|max:255',
+        ]);
+
+        // 'product_name'を'title'に変更
+        $product->update([
+            'title' => $request->input('product_name'),
+            'description' => $request->input('description'),
+            'tag' => implode(',', $request->input('tag', [])), // タグをカンマ区切りの文字列に変換
+        ]);
+
+        return redirect()->route('products.show', $product);
     }
 
     /**

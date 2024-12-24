@@ -17,19 +17,23 @@
                         @method('PUT')
                         <div class="mb-4">
                             <label for="product_name" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">商品名</label>
-                            <input type="text" name="product_name" id="product_name" value="{{ $product->title }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                            <label for="product_image" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">商品画像</label>
-                            <input type="file" name="product_image" id="product_image" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                            <label for="product_name" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">商品説明</label>
-                            <input type="text" name="product_name" id="product_name" value="{{ $product->description }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">                        
+                            <input type="text" name="product_name" id="product_name" value="{{ $product->title}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            <!-- 後で画像の処理をする。 -->
+                            <!-- <label for="image" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">商品画像</label>
+                            <input type="file" name="image" id="image" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"> -->
+                            <label for="description" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">商品説明</label>
+                            <input type="text" name="description" id="description" value="{{ $product->description }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             <div class="mb-4">
-                                <label for="tag" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">タグ</label>    
+                                <label for="tag" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">タグ</label>
                                 <select name="tag[]" id="tag" multiple class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                                    <option value="tag1">仲間募集中！</option>
-                                    <option value="tag2">スポンサー募集中！</option>
+                                    <option value="tag1" {{ in_array('tag1', explode(',', $product->tag)) ? 'selected' : '' }}>仲間募集中！</option>
+                                    <option value="tag2" {{ in_array('tag2', explode(',', $product->tag)) ? 'selected' : '' }}>スポンサー募集中！</option>
                                 </select>
                             </div>
                             @error('product_name')
+                            <span class="text-red-500 text-xs italic">{{ $message }}</span>
+                            @enderror
+                            @error('description')
                             <span class="text-red-500 text-xs italic">{{ $message }}</span>
                             @enderror
                         </div>

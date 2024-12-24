@@ -37,9 +37,8 @@
                                     <div class="mb-4">
                                         <label for="tag" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">タグ</label>
                                         <select name="tag[]" id="tag" multiple class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                                            @foreach ($tags as $tag)
-                                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
-                                            @endforeach
+                                            <option value="tag1">仲間募集中！</option>
+                                            <option value="tag2">スポンサー募集中！</option>
                                         </select>
                                     </div>
                                     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">商品作成</button>
