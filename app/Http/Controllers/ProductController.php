@@ -77,7 +77,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        // 製品をデータベースから取得
+        // ビューにデータを渡す
         return view('products.show', compact('product'));
     }
 
@@ -86,7 +86,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        //編集画面を表示
+        return view('products.edit', compact('product'));
+
     }
 
     /**
