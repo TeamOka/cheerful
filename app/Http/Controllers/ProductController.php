@@ -118,7 +118,11 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        // 商品を削除
+        $product->delete();
+
+        // 削除後にリダイレクト
+        return redirect()->route('products.index')->with('success', '商品が削除されました。');
     }
 
     public function mylist()
