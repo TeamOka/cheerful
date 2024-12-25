@@ -20,10 +20,10 @@
                         @foreach ($products as $product)
                         <div class="mb-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
                             <img src="{{ asset($product->image) }}" alt="{{ $product->title }}" class="w-full h-auto mb-2">
-                            <h2 class="text-xl font-bold">{{ $product->title }}</h2>
-                            <p class="text-gray-800 dark:text-gray-300">{{ $product->description }}</p>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $product->user->name }}</p>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm">タグ:
+                            <h2 class="italic text-xl font-bold text-gray-800 dark:text-gray-300 m-2">{{ $product->title }}</h2>
+                            <p class="text-gray-800 dark:text-gray-300 m-2 border-2 border-gray-300 rounded-lg p-2">{{ $product->description }}</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm m-2">投稿者: {{ $product->user->name }}</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm m-2">タグ:
                                 @if($product->tag)
                                 @php
                                 $tags = explode(',', $product->tag);
@@ -41,21 +41,7 @@
                                 なし
                                 @endif
                             </p>
-                            <a href="{{ route('products.show', $product) }}" class="text-blue-500 hover:text-blue-700">詳細を見る</a>
-                            <div class="flex">
-                                @if ($product->cheered->contains(auth()->id()))
-                                <form action="{{ route('products.discheer', $product) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="text-red-500 hover:text-red-700">応援中！</button>
-                                </form>
-                                @else
-                                <form action="{{ route('products.cheer', $product) }}" method="POST">
-                                    @csrf
-                                    <button type="submit" class="text-blue-500 hover:text-blue-700">応援する！</button>
-                                </form>
-                                @endif
-                            </div>
+                            <a href="{{ route('products.show', $product) }}" class="text-blue-500 hover:text-blue-700 m-2">詳細を見る</a>
                         </div>
                         @endforeach
                     </div>
