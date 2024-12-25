@@ -16,7 +16,7 @@
                         {{ __('ホーム') }}
                     </x-nav-link>
                     <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
-                        {{ __('一覧') }}
+                        {{ __('挑戦一覧') }}
                     </x-nav-link>
                     <x-nav-link :href="route('products.create')" :active="request()->routeIs('products.create')">
                         {{ __('挑戦する') }}
