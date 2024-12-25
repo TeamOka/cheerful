@@ -49,7 +49,6 @@
                         
                     </div>
                     @endif
-<<<<<<< HEAD
 
                     <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
                         <h2 class="text-2xl font-bold mb-6 dark:text-gray-200">この商品について問い合わせる</h2>
@@ -106,7 +105,7 @@
                                 </button>
                             </div>
                         </form>
-=======
+
                     <div class="flex mt-4">
                         @if ($product->cheered->contains(auth()->id()))
                         <form action="{{ route('products.discheer', $product) }}" method="POST">
@@ -120,7 +119,6 @@
                             <button type="submit" class="text-blue-500 hover:text-blue-700">like {{$product->cheered->count()}}</button>
                         </form>
                         @endif
->>>>>>> 4ab2269308c882fb23a3cfb7998e6975bcbadb84
                     </div>
                 </div>
             </div>
