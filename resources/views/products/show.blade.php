@@ -86,6 +86,23 @@
                                 @enderror
                             </div>
 
+                            {{-- お問い合わせの種類（新規追加） --}}
+                            <div class="mb-4">
+                                <label for="inquiry_type" class="block text-gray-700 text-sm font-bold mb-2">
+                                    お問い合わせの種類
+                                </label>
+                                <select name="inquiry_type" id="inquiry_type" 
+                                    class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                    required>
+                                    <option value="">選択してください</option>
+                                    <option value="member" {{ old('inquiry_type') == 'member' ? 'selected' : '' }}>仲間になリたい</option>
+                                    <option value="sponsor" {{ old('inquiry_type') == 'sponsor' ? 'selected' : '' }}>スポンサーになる</option>
+                                </select>
+                                @error('inquiry_type')
+                                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                @enderror
+                            </div>
+
                             <div class="mb-4">
                                 <label for="message" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
                                     お問い合わせ内容
