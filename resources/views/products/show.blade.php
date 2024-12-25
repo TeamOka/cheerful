@@ -11,7 +11,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <a href="{{ route('products.index') }}" class="text-blue-500 hover:text-blue-700 mr-2">一覧に戻る</a>
+                    <a href="{{ route('home') }}" class="text-blue-500 hover:text-blue-700 mr-2">ホームに戻る</a>
                     <p class="text-gray-800 dark:text-gray-300 text-lg">{{ $product->title }}</p>
                     <img src="{{ asset($product->image) }}" alt="{{ $product->title }}" class="w-52 h-auto mb-2">
                     <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $product->user->name }}</p>
@@ -105,9 +105,58 @@
                                 </button>
                             </div>
                         </form>
+
+                        <div class="flex mt-4">
+                            @if ($product->cheered->contains(auth()->id()))
+                            <form action="{{ route('products.discheer', $product) }}" method="POST">
+                                @csrf
+
+                                <div class="mb-4">
+                                    <label for="name" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
+                                        お名前
+                                    </label>
+                                    <input type="text" name="name" id="name"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        value="{{ old('name') }}" required>
+                                    @error('name')
+                                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="email" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
+                                        メールアドレス
+                                    </label>
+                                    <input type="email" name="email" id="email"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        value="{{ old('email') }}" required>
+                                    @error('email')
+                                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="message" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
+                                        お問い合わせ内容
+                                    </label>
+                                    <textarea name="message" id="message" rows="4"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        required>{{ old('message') }}</textarea>
+                                    @error('message')
+                                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="flex items-center justify-between">
+                                    <button type="submit"
+                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                        送信する
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </x-app-layout>

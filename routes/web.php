@@ -11,7 +11,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::post('/products/{product}/contact', [ContactController::class, 'store'])->name('products.contact.store');
+
+Route::get('/home', function () {
+    return view('home');
+})->middleware(['auth', 'verified'])->name('home');
+// Route::get('/home', function () {
+//     return view('home');
+// })->middleware(['auth', 'verified'])->name('home');
 
 Route::get('/home', function () {
     return view('home');
