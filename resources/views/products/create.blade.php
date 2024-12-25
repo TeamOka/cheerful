@@ -2,7 +2,7 @@
 
  <x-app-layout>
      <x-slot name="header">
-         <h2 class="font-semibold text-xl text-red-600 dark:text-red-400 leading-tight">
+     <h2 class="font-semibold text-xl text-red-600 dark:text-red-400 leading-tight">
              {{ __('プロダクト出品ページ') }}
          </h2>
      </x-slot>
