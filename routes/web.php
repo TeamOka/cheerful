@@ -3,10 +3,13 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/products/{product}/contact', [ContactController::class, 'store'])->name('products.contact.store');
 
 Route::get('/home', function () {
     return view('home');
