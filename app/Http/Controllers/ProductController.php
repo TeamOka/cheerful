@@ -101,16 +101,33 @@ class ProductController extends Controller
             'description' => 'nullable|string|max:1000',
             'tag' => 'nullable|array',
             'tag.*' => 'string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+        // 画像の処理
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName); // 画像を保存
+            $product->image = 'images/' . $imageName; // データベースに保存する画像のパスを設定
+        } else {
+            $product->image = $product->image; // 画像がない場合は既存の画像を使用
+        }
+
         // 'product_name'を'title'に変更
-        $product->update([
+        $updated = $product->update([
             'title' => $request->input('product_name'),
             'description' => $request->input('description'),
             'tag' => implode(',', $request->input('tag', [])), // タグをカンマ区切りの文字列に変換
+            'image' => $product->image, // 更新された画像のパスを使用
         ]);
 
-        return redirect()->route('products.show', $product);
+        // 更新が成功したか確認
+        if ($updated) {
+            return redirect()->route('products.show', $product);
+        } else {
+            // 更新に失敗した場合の処理
+            return redirect()->back()->withErrors(['update' => '更新に失敗しました。']);
+        }
     }
 
     /**
