@@ -12,15 +12,15 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <a href="{{ route('products.show', $product) }}" class="text-blue-500 hover:text-blue-700 mr-2">詳細に戻る</a>
-                    <form method="POST" action="{{ route('products.update', $product) }}">
-                        @csrf
+                    <form method="POST" action="{{ route('products.update', $product) }}" enctype="multipart/form-data">
+                    @csrf
                         @method('PUT')
                         <div class="mb-4">
                             <label for="product_name" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">商品名</label>
                             <input type="text" name="product_name" id="product_name" value="{{ $product->title}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             <!-- 後で画像の処理をする。 -->
-                            <!-- <label for="image" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">商品画像</label>
-                            <input type="file" name="image" id="image" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"> -->
+                            <label for="image" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">商品画像</label>
+                            <input type="file" name="image" id="image" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             <label for="description" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">商品説明</label>
                             <input type="text" name="description" id="description" value="{{ $product->description }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             <div class="mb-4">
@@ -31,6 +31,9 @@
                                 </select>
                             </div>
                             @error('product_name')
+                            <span class="text-red-500 text-xs italic">{{ $message }}</span>
+                            @enderror
+                            @error('update')
                             <span class="text-red-500 text-xs italic">{{ $message }}</span>
                             @enderror
                             @error('description')
