@@ -16,13 +16,13 @@
                         {{ __('ホーム') }}
                     </x-nav-link>
                     <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
-                        {{ __('出品一覧') }}
+                        {{ __('挑戦一覧') }}
                     </x-nav-link>
                     <x-nav-link :href="route('products.create')" :active="request()->routeIs('products.create')">
-                        {{ __('出品する') }}
+                        {{ __('挑戦する') }}
                     </x-nav-link>
                     <x-nav-link :href="route('products.mylist')" :active="request()->routeIs('products.mylist')">
-                        {{ __('応援しているページ（マイリスト）') }}
+                        {{ __('応援リスト') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -85,7 +85,7 @@
             <x-responsive-nav-link :href="route('products.create')" :active="request()->routeIs('products.create')">
                 {{ __('出品する') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('products.mylist')" :active="request()->routeIs('products.mylist')">
+            <x-responsive-nav-link :href="route('products.mylist')" :active="request()->routeIs('products.cheered')">
                 {{ __('応援しているページ（マイリスト）') }}
             </x-responsive-nav-link>
         </div>

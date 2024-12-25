@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductContactController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 
@@ -9,11 +11,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD
 Route::post('/products/{product}/contact', [ContactController::class, 'store'])->name('products.contact.store');
 
 Route::get('/home', function () {
     return view('home');
 })->middleware(['auth', 'verified'])->name('home');
+=======
+// Route::get('/home', function () {
+//     return view('home');
+// })->middleware(['auth', 'verified'])->name('home');
+
+Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
+>>>>>>> 4ab2269308c882fb23a3cfb7998e6975bcbadb84
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -27,6 +37,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/products/edit/{product}', [ProductController::class, 'edit'])->name('products.edit');
     Route::put('/products/update/{product}', [ProductController::class, 'update'])->name('products.update');
     Route::delete('/products/destroy/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+    // 応援のルーティング
+    Route::post('/products/{product}/cheer', [ProductContactController::class, 'store'])->name('products.cheer');
+    Route::delete('/products/{product}/cheer', [ProductContactController::class, 'destroy'])->name('products.discheer');
 });
 
 require __DIR__ . '/auth.php';

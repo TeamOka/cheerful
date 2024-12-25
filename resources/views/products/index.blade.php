@@ -2,8 +2,10 @@
 
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('出品一覧') }}
+
+        <h2 class="tracking-widest font-ubuntu font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Challenge List') }}
+
         </h2>
     </x-slot>
 
@@ -12,7 +14,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     @if ($products->isEmpty())
-                    <p class="text-gray-600 dark:text-gray-400">出品なし</p>
+                    <p class="text-gray-600 dark:text-gray-400">No products</p>
                     @else
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         @foreach ($products as $product)
@@ -40,6 +42,20 @@
                                 @endif
                             </p>
                             <a href="{{ route('products.show', $product) }}" class="text-blue-500 hover:text-blue-700">詳細を見る</a>
+                            <div class="flex">
+                                @if ($product->cheered->contains(auth()->id()))
+                                <form action="{{ route('products.discheer', $product) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-red-500 hover:text-red-700">応援中！</button>
+                                </form>
+                                @else
+                                <form action="{{ route('products.cheer', $product) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="text-blue-500 hover:text-blue-700">応援する！</button>
+                                </form>
+                                @endif
+                            </div>
                         </div>
                         @endforeach
                     </div>

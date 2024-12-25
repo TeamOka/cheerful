@@ -13,8 +13,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        // 現在のユーザーが投稿した商品を取得
+        $products = Product::where('user_id', Auth::id())->get();
 
+        // ビューに製品データを渡す
         return view('products.index', compact('products'));
     }
 
@@ -104,6 +106,10 @@ class ProductController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'ログインが必要です。');
+        }
+
         // 画像の処理
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
@@ -144,8 +150,8 @@ class ProductController extends Controller
 
     public function mylist()
     {
-        // 出品リストを取得するロジック
-        $products = Product::all(); // 例としてすべての製品を取得
+        // ユーザーが応援した商品を取得
+        $products = Auth::user()->cheers; // cheersメソッドを使用して応援した商品を取得
 
         return view('products.mylist', compact('products'));
     }

@@ -913,7 +913,7 @@
             <div class="relative w-full max-w-7xl px-6 lg:px-8">
                 <header class="flex justify-between items-center py-6">
                     <div class="flex items-center">
-                        <h1 class="text-2xl font-bold ml-2 text-[#FF2D20] tracking-widest ">Cheerful</h1>
+                        <h1 class="font-ubuntu text-2xl font-bold ml-2 text-[#FF2D20] tracking-widest ">Cheerful</h1>
                     </div>
                     <nav class="space-x-4">
                         @if (Route::has('login'))

@@ -1,9 +1,9 @@
-<!-- resources/views/tweets/show.blade.php -->
+<!-- resources/views/products/show.blade.php -->
 
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('商品詳細') }}
+        <h2 class="tracking-widest font-ubuntu font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Detail') }}
         </h2>
     </x-slot>
 
@@ -15,7 +15,7 @@
                     <p class="text-gray-800 dark:text-gray-300 text-lg">{{ $product->title }}</p>
                     <img src="{{ asset($product->image) }}" alt="{{ $product->title }}" class="w-52 h-auto mb-2">
                     <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $product->user->name }}</p>
-                    <p class="text-gray-800 dark:text-gray-300">{{ $product->description }}</p>                
+                    <p class="text-gray-800 dark:text-gray-300">{{ $product->description }}</p>
                     <p class="text-gray-600 dark:text-gray-400 text-sm">タグ:
                         @if($product->tag)
                         @php
@@ -49,6 +49,7 @@
                         
                     </div>
                     @endif
+<<<<<<< HEAD
 
                     <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
                         <h2 class="text-2xl font-bold mb-6 dark:text-gray-200">この商品について問い合わせる</h2>
@@ -105,6 +106,21 @@
                                 </button>
                             </div>
                         </form>
+=======
+                    <div class="flex mt-4">
+                        @if ($product->cheered->contains(auth()->id()))
+                        <form action="{{ route('products.discheer', $product) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-500 hover:text-red-700">dislike {{$product->cheered->count()}}</button>
+                        </form>
+                        @else
+                        <form action="{{ route('products.cheer', $product) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="text-blue-500 hover:text-blue-700">like {{$product->cheered->count()}}</button>
+                        </form>
+                        @endif
+>>>>>>> 4ab2269308c882fb23a3cfb7998e6975bcbadb84
                     </div>
                 </div>
             </div>

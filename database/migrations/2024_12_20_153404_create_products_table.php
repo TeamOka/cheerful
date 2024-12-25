@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('title');
-            $table->string('image'); // 画像のパスを保存するためにstringを使用
+            $table->string('image')->default('https://picsum.photos/200'); // 画像のパスを保存するためにstringを使用
             $table->text('description');
             $table->string('tag'); // タグを選択肢から選ぶ場合は、別途管理することを検討
             $table->timestamps();
