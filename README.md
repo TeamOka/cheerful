@@ -1,103 +1,47 @@
-# ① 課題名
+# 作品名
 
 「Cheerful」
 
-## ② 課題内容（どんな作品か）
+## 作品内容（どんな作品か）
 
--   〇〇〇〇〇〇〇〇
--   〇〇〇〇〇〇〇〇
+「Cheerful」は、個人で活動しているクリエイターが簡単に自分のプロジェクトを共有することができて、
+・プロジェクトを一緒に手伝ってくれる仲間を募集したり、
+・プロジェクトを支援してくれるスポンサーを募集したり、
+できるプラットフォームです。
 
-## ③ アプリのデプロイ URL
+忙しい時間の中でも、創作活動やプロジェクトに励む個人のクリエイターが、ファンや仲間と繋がることで、活動するモチベーションを得られる居場所を提供します。
 
-デプロイしている場合は URL を記入（任意）
+## アプリのデプロイ URL
 
-## ④ アプリのログイン用 ID または Password（ある場合）
+準備中
 
--   ID: 〇〇〇〇〇〇〇〇
--   PW: 〇〇〇〇〇〇〇〇
+## アプリのログイン用 ID または Password（ある場合）
 
-## ⑤ 工夫した点・こだわった点
+テストアカウント
 
--   〇〇〇〇〇〇〇〇
--   〇〇〇〇〇〇〇〇
--   〇〇〇〇〇〇〇〇
+-   ID: yoshida@test.com
+-   PW: 12345678
 
-## ⑥ 難しかった点・次回トライしたいこと（又は機能）
+## 作品として工夫した点・こだわった点
 
--   〇〇〇〇〇〇〇〇
--   〇〇〇〇〇〇〇〇
--   〇〇〇〇〇〇〇〇
+-   Whyme の話し合いをチームですることでサービスの微細な部分をこだわりました。
+    -   例えば、実際にやり遂げたい世界観を考え、それを元に機能の名称をつけました。「出品する」ではなくて「挑戦する」、「いいね」ではなくて「応援する」などユーザーにより伝わりやすいストレートな名称にしました。
+    -   実際に使って欲しいペルソナを身近な人（メンバー O の兄）に決めて、ペルソナがどうしたら使いたいのか、何に困っているのかをヒヤリングして MVP を作成しました。
+        　ー　メンバー O の兄の場合：家庭や仕事（ブルーワーカー）で朝から晩まで忙しい。だけど、空いている時間で定期的に絵を描いたり、音楽を作ったり創作活動に取り組んでいる。以前には、作品を売却することなども考えたが、評価されなかったり、安く買い叩かれたりが怖く踏み出せなかった。
+        → 私たちが解決策として考えた機能：
+    -   クリエイターが初心者でもカジュアルにプロジェクトや作品を公開できるわかりやすさ。
+        ー　ユーザー側の応援の仕方が複数用意し、「応援する」「仲間に応募する」「スポンサーに応募する」というように、売れることだけが価値ではなく、クリエイターがプロジェクトを継続するためのモチベーション（達成感の獲得など）となる場所を目指しています。
 
-## ⑦ フリー項目（感想、シェアしたいこと等なんでも）
+## 難しかった点・次回トライしたいこと（又は機能）
 
--   [感想]
--   [参考記事]
-    -   1. [URL をここに記入]
-    -   2. [URL をここに記入]
+-   Laravel、Docker、Tailwind、Github など慣れていない技術だったので、チームで相談や協力し合いながらやっていきました。
+    ー　今回、サービスとしての MVP 機能を作成したので、次回以降バージョンアップしていきたい。
+    ー　プロジェクトのクラウドファンディング機能
+    ー　商品の場合、購入できるような EC 機能
+    ー　ユーザーのフォロワー機能
+    ー
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## フリー項目（感想、シェアしたいこと等なんでも）
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
--   [Simple, fast routing engine](https://laravel.com/docs/routing).
--   [Powerful dependency injection container](https://laravel.com/docs/container).
--   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
--   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
--   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
--   [Robust background job processing](https://laravel.com/docs/queues).
--   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
--   **[Vehikl](https://vehikl.com/)**
--   **[Tighten Co.](https://tighten.co)**
--   **[WebReinvent](https://webreinvent.com/)**
--   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
--   **[64 Robots](https://64robots.com)**
--   **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
--   **[Cyber-Duck](https://cyber-duck.co.uk)**
--   **[DevSquad](https://devsquad.com/hire-laravel-developers)**
--   **[Jump24](https://jump24.co.uk)**
--   **[Redberry](https://redberry.international/laravel/)**
--   **[Active Logic](https://activelogic.com)**
--   **[byte5](https://byte5.de)**
--   **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+-   クリエイターが自分の作品を発表することで、ファンや仲間を増やすことができるプラットフォームを目指しています。
+-   クリエイター同士の交流を深め、共に成長できる環境を提供したいと考えています。

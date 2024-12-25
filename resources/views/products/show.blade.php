@@ -46,21 +46,65 @@
                             @method('DELETE')
                             <button type="submit" class="text-red-500 hover:text-red-700">削除</button>
                         </form>
+
                     </div>
                     @endif
-                    <div class="flex mt-4">
-                        @if ($product->cheered->contains(auth()->id()))
-                        <form action="{{ route('products.discheer', $product) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="text-red-500 hover:text-red-700">dislike {{$product->cheered->count()}}</button>
-                        </form>
-                        @else
-                        <form action="{{ route('products.cheer', $product) }}" method="POST">
-                            @csrf
-                            <button type="submit" class="text-blue-500 hover:text-blue-700">like {{$product->cheered->count()}}</button>
-                        </form>
+
+                    <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+                        <h2 class="text-2xl font-bold mb-6 dark:text-gray-200">この商品について問い合わせる</h2>
+
+                        @if (session('success'))
+                        <div class="mb-4 text-green-600 dark:text-green-400">
+                            {{ session('success') }}
+                        </div>
                         @endif
+
+                        <form method="POST" action="{{ route('products.contact.store', $product) }}">
+                            @csrf
+
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
+                                    お名前
+                                </label>
+                                <input type="text" name="name" id="name"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    value="{{ old('name') }}" required>
+                                @error('name')
+                                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
+                                    メールアドレス
+                                </label>
+                                <input type="email" name="email" id="email"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    value="{{ old('email') }}" required>
+                                @error('email')
+                                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
+                                    お問い合わせ内容
+                                </label>
+                                <textarea name="message" id="message" rows="4"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    required>{{ old('message') }}</textarea>
+                                @error('message')
+                                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="flex items-center justify-between">
+                                <button type="submit"
+                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    送信する
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
