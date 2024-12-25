@@ -18,11 +18,9 @@ class ContactController extends Controller
         $validated = $request->validate([
             'name' => 'required|max:64',
             'email' => 'required|email|max:64',
+            'inquiry_type' => 'required|in:member,sponsor',  // 追加
             'message' => 'required|max:256'
         ]);
-
-        // product_idを追加
-        $validated['product_id'] = $product->id;
 
         // データベースに保存
         Contact::create($validated);
@@ -33,4 +31,14 @@ class ContactController extends Controller
             ->with('success', 'お問い合わせありがとうございます。');
     }
 
+
+    protected function rules()
+    {
+        return [
+            'name' => 'required',
+            'email' => 'required|email',
+            'inquiry_type' => 'required|in:member,sponsor',  // 追加
+            'message' => 'required',
+        ];
+    }
 }
