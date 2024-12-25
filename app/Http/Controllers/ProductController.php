@@ -13,8 +13,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        // 現在のユーザーが投稿した商品を取得
+        $products = Product::where('user_id', Auth::id())->get();
 
+        // ビューに製品データを渡す
         return view('products.index', compact('products'));
     }
 
