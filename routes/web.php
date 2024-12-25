@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductContactController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,6 +25,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/products/edit/{product}', [ProductController::class, 'edit'])->name('products.edit');
     Route::put('/products/update/{product}', [ProductController::class, 'update'])->name('products.update');
     Route::delete('/products/destroy/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+    // 応援のルーティング
+    Route::post('/products/{product}/cheer', [ProductContactController::class, 'store'])->name('products.cheer');
+    Route::delete('/products/{product}/cheer', [ProductContactController::class, 'destroy'])->name('products.discheer');
+
 });
 
 require __DIR__ . '/auth.php';

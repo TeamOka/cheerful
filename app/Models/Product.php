@@ -17,4 +17,10 @@ class Product extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    // お問い合わせのモデルファイル設定追加
+    public function cheered()
+    {
+        return $this->belongsToMany(User::class, 'cheer_products')->withTimestamps();
+    }
 }

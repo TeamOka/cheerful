@@ -15,7 +15,7 @@
                     <p class="text-gray-800 dark:text-gray-300 text-lg">{{ $product->title }}</p>
                     <img src="{{ asset($product->image) }}" alt="{{ $product->title }}" class="w-52 h-auto mb-2">
                     <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $product->user->name }}</p>
-                    <p class="text-gray-800 dark:text-gray-300">{{ $product->description }}</p>                
+                    <p class="text-gray-800 dark:text-gray-300">{{ $product->description }}</p>
                     <p class="text-gray-600 dark:text-gray-400 text-sm">タグ:
                         @if($product->tag)
                         @php
@@ -48,6 +48,20 @@
                         </form>
                     </div>
                     @endif
+                    <div class="flex mt-4">
+                        @if ($product->cheered->contains(auth()->id()))
+                        <form action="{{ route('products.discheer', $product) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-500 hover:text-red-700">dislike {{$product->cheered->count()}}</button>
+                        </form>
+                        @else
+                        <form action="{{ route('products.cheer', $product) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="text-blue-500 hover:text-blue-700">like {{$product->cheered->count()}}</button>
+                        </form>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>

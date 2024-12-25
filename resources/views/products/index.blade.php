@@ -40,6 +40,20 @@
                                 @endif
                             </p>
                             <a href="{{ route('products.show', $product) }}" class="text-blue-500 hover:text-blue-700">詳細を見る</a>
+                            <div class="flex">
+                                @if ($product->cheered->contains(auth()->id()))
+                                <form action="{{ route('products.discheer', $product) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-red-500 hover:text-red-700">応援中！</button>
+                                </form>
+                                @else
+                                <form action="{{ route('products.cheer', $product) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="text-blue-500 hover:text-blue-700">応援する！</button>
+                                </form>
+                                @endif
+                            </div>
                         </div>
                         @endforeach
                     </div>

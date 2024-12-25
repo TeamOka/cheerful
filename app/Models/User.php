@@ -51,4 +51,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class);
     }
+
+    // お問い合わせのモデルファイル設定追加
+    public function cheers()
+    {
+        return $this->belongsToMany(Product::class, 'cheer_products')->withTimestamps();
+    }
 }
