@@ -4,6 +4,7 @@
     <x-slot name="header">
         <h2 class="tracking-widest font-ubuntu font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Edit') }}
+
         </h2>
     </x-slot>
 

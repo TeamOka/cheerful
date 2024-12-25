@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl text-red-600 dark:text-red-400 leading-tight">
             {{ __('応援した商品一覧') }}
         </h2>
     </x-slot>
