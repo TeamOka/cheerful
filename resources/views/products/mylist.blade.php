@@ -1,7 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-red-600 dark:text-red-400 leading-tight">
-            {{ __('応援しているページ（マイリスト）') }}
+
+        <h2 class="tracking-widest font-ubuntu font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('MyList') }}
+
         </h2>
     </x-slot>
 

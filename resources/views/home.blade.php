@@ -2,8 +2,10 @@
 
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-ubuntu font-semibold text-xl text-red-600 dark:text-red-400 leading-tight">
-            {{ __('HOME') }}
+
+        <h2 class="tracking-widest font-ubuntu font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Home') }}
+
         </h2>
     </x-slot>
 
@@ -23,8 +25,8 @@
         <div class="main-visual-text mx-4 md:mx-10 lg:mx-20" style="margin-top: 100px; margin-bottom: 100px;">
             <h1 class="text-white text-4xl md:text-6xl lg:text-8xl font-bold m-2 tracking-widest font-ubuntu">Cheerful</h1>
             <p class="text-white text-xl md:text-2xl lg:text-3xl font-bold m-2 font-ubuntu mb-8">誰もがクリエイター！あなたにスポットライトを！</p>
-            <a href="{{ route('products.index') }}" class="btn btn-primary px-4 py-2 mx-4 my-4 text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-md transition duration-200">出品一覧へ</a>
-            <a href="{{ route('products.create') }}" class="btn btn-primary px-4 py-2 mx-4 my-4 text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md transition duration-200">出品投稿</a>
+            <a href="{{ route('products.index') }}" class="btn btn-primary w-full sm:w-auto px-4 py-2 mx-2 my-4 text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-md transition duration-200">応援をさがす</a>
+            <a href="{{ route('products.create') }}" class="btn btn-primary w-full sm:w-auto px-4 py-2 mx-2 my-4 text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md transition duration-200">挑戦してみる</a>
         </div>
     </div>
 
