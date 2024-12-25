@@ -35,7 +35,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100 shadow-md rounded-lg">
                     @if ($products->isEmpty())
-                    <p class="text-gray-600 dark:text-gray-400">出品なし</p>
+                    <p class="text-gray-600 dark:text-gray-400">該当する内容がありません</p>
                     @else
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         @foreach ($products as $product)
@@ -85,5 +85,7 @@
             </div>
         </div>
     </div>
+
+
 
 </x-app-layout>

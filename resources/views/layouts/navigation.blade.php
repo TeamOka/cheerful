@@ -27,6 +27,15 @@
                 </div>
             </div>
 
+            <!-- Search Form -->
+            <form method="post" action="{{ route('search') }}" class="flex items-center space-x-2 mt-4 ml-auto">
+                @csrf
+                <input type="text" name="search" placeholder="挑戦したい内容を検索" class="w-52 mb-2 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <button type="submit" class="flex items-center justify-center px-4 py-2 mb-2 ml-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">
+                    <span class="material-icons">search</span> <!-- 虫眼鏡マーク -->
+                </button>
+            </form>
+
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">

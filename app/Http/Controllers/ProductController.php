@@ -155,4 +155,30 @@ class ProductController extends Controller
 
         return view('products.mylist', compact('products'));
     }
+
+    public function search(Request $request)
+    {
+        if ($request->input('search') == null) {
+            $request->session()->forget('search');
+            return redirect()->route('home');
+        }
+
+        $request->validate([
+            'search' => 'string|max:255',
+        ]);
+
+        // 検索ワードを取得
+        $searchTerm = $request->input('search');
+        $products = Product::where('title', 'LIKE', "%{$searchTerm}%")
+            ->orWhere('description', 'LIKE', "%{$searchTerm}%")
+            ->get();
+
+        // 検索ワードをセッションに保存
+        session(['search' => $searchTerm]);
+
+        // 検索結果を表示した後、セッションから検索ワードを削除
+        $request->session()->forget('search');
+
+        return view('home', compact('products')); // home.blade.php に渡す
+    }
 }
