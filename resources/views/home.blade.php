@@ -27,10 +27,6 @@
             <p class="text-white text-xl md:text-2xl lg:text-3xl font-bold m-2 font-ubuntu mb-8">誰もがクリエイター！あなたにスポットライトを！</p>
             <a href="{{ route('products.index') }}" class="btn btn-primary w-full sm:w-auto px-4 py-2 mx-2 my-4 text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-md transition duration-200">応援をさがす</a>
             <a href="{{ route('products.create') }}" class="btn btn-primary w-full sm:w-auto px-4 py-2 mx-2 my-4 text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md transition duration-200">挑戦してみる</a>
-            <form method="post" class="flex items-center space-x-2 mt-4">
-                <input type="text" name="search" placeholder="挑戦したい内容を検索" class="w-52 p-2 ml-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                <button type="submit" class="px-4 py-2 ml-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">検索</button>
-            </form>
         </div>
     </div>
 
@@ -39,7 +35,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100 shadow-md rounded-lg">
                     @if ($products->isEmpty())
-                    <p class="text-gray-600 dark:text-gray-400">出品なし</p>
+                    <p class="text-gray-600 dark:text-gray-400">該当する内容がありません</p>
                     @else
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         @foreach ($products as $product)
@@ -89,5 +85,7 @@
             </div>
         </div>
     </div>
+
+
 
 </x-app-layout>

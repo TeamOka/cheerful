@@ -41,4 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/products/{product}/cheer', [ProductContactController::class, 'destroy'])->name('products.discheer');
 });
 
+// 検索のルーティング
+Route::post('/search', [ProductController::class, 'search'])->name('search');
+
 require __DIR__ . '/auth.php';
