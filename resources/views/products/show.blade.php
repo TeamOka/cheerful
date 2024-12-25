@@ -11,7 +11,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <a href="{{ route('products.index') }}" class="text-blue-500 hover:text-blue-700 mr-2">一覧に戻る</a>
+                    <a href="{{ route('home') }}" class="text-blue-500 hover:text-blue-700 mr-2">ホームに戻る</a>
                     <p class="text-gray-800 dark:text-gray-300 text-lg">{{ $product->title }}</p>
                     <img src="{{ asset($product->image) }}" alt="{{ $product->title }}" class="w-52 h-auto mb-2">
                     <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $product->user->name }}</p>
