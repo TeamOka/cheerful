@@ -85,7 +85,7 @@
             <x-responsive-nav-link :href="route('products.create')" :active="request()->routeIs('products.create')">
                 {{ __('出品する') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('products.mylist')" :active="request()->routeIs('products.mylist')">
+            <x-responsive-nav-link :href="route('products.mylist')" :active="request()->routeIs('products.cheered')">
                 {{ __('応援しているページ（マイリスト）') }}
             </x-responsive-nav-link>
         </div>

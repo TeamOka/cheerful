@@ -148,8 +148,8 @@ class ProductController extends Controller
 
     public function mylist()
     {
-        // 出品リストを取得するロジック
-        $products = Product::all(); // 例としてすべての製品を取得
+        // ユーザーが応援した商品を取得
+        $products = Auth::user()->cheers; // cheersメソッドを使用して応援した商品を取得
 
         return view('products.mylist', compact('products'));
     }

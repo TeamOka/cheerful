@@ -29,7 +29,6 @@ Route::middleware('auth')->group(function () {
     // 応援のルーティング
     Route::post('/products/{product}/cheer', [ProductContactController::class, 'store'])->name('products.cheer');
     Route::delete('/products/{product}/cheer', [ProductContactController::class, 'destroy'])->name('products.discheer');
-
 });
 
 require __DIR__ . '/auth.php';
