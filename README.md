@@ -13,7 +13,8 @@
 
 ## アプリのデプロイ URL
 
-準備中
+LP はこちらです！
+https://aamaa.jp/project/
 
 ## アプリのログイン用 ID または Password（ある場合）
 
