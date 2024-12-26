@@ -60,3 +60,8 @@ https://aamaa.jp/project/
 
 ー　環境構築系の内容は、チームで同様のエラーが出たときに対応しやすいように、note で記事化して再度のエラーの際にスムーズにできるように工夫しました。
 ex. https://note.com/masvc_/n/n0f7eba92df03
+
+## プレゼン資料
+https://github.com/TeamOka/cheerful/blob/main/Cheerful%E8%B3%87%E6%96%99.pdf
+
+
