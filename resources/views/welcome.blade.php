@@ -977,15 +977,15 @@
                 </main>
 
                 <section class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+                    <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 text-center">
                         <h3 class="text-2xl font-bold mb-2">コンセプト</h3>
                         <p>クリエイターとコミュニティがつながる場所。あなたの作品を見せて、仲間や応援団を募りましょう。</p>
                     </div>
-                    <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+                    <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 text-center">
                         <h3 class="text-2xl font-bold mb-2">チアー</h3>
                         <p>プライベートでクリエイティブな活動をしているあなたが主役！あなたのオリジナル性を大切にし支援します。</p>
                     </div>
-                    <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+                    <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 text-center">
                         <h3 class="text-2xl font-bold mb-2">バリュー</h3>
                         <p>作品を適正に評価される環境を提供し、クリエイターが自由に表現できる場所を作ります。</p>
                     </div>

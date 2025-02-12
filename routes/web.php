@@ -11,12 +11,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::post('/products/{product}/contact', [ContactController::class, 'store'])->name('products.contact.store');
 
 Route::get('/home', function () {
     return view('home');
 })->middleware(['auth', 'verified'])->name('home');
+
 // Route::get('/home', function () {
 //     return view('home');
 // })->middleware(['auth', 'verified'])->name('home');
@@ -40,8 +40,5 @@ Route::middleware('auth')->group(function () {
     Route::post('/products/{product}/cheer', [ProductContactController::class, 'store'])->name('products.cheer');
     Route::delete('/products/{product}/cheer', [ProductContactController::class, 'destroy'])->name('products.discheer');
 });
-
-// 検索のルーティング
-Route::post('/search', [ProductController::class, 'search'])->name('search');
 
 require __DIR__ . '/auth.php';
