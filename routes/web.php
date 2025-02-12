@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductContactController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SearchController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,6 +40,11 @@ Route::middleware('auth')->group(function () {
     // 応援のルーティング
     Route::post('/products/{product}/cheer', [ProductContactController::class, 'store'])->name('products.cheer');
     Route::delete('/products/{product}/cheer', [ProductContactController::class, 'destroy'])->name('products.discheer');
+
+    // 検索のルーティング
+    Route::post('/search', [SearchController::class, 'search'])
+        ->name('search')
+        ->middleware(['auth']);
 });
 
 require __DIR__ . '/auth.php';
